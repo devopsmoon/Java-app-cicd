@@ -1,8 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven 'M2_HOME'
-        java  'openjdk'
+        maven 'maven'
     }
     stages{
         stage('git checkout'){
