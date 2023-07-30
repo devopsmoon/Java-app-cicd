@@ -14,5 +14,11 @@ pipeline{
                 sh 'mvn clean package'
             }
         }
+        stage('Sonarqube-Analysis'){
+            steps{
+                withSonarQubeEnv(credentialsId: 'sonar')
+                sh 'mavn sonar:sonar'
+            }
+        }
     }
 }
