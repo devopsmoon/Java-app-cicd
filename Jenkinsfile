@@ -44,11 +44,11 @@ version: '4.0.0'
         }
         stage('deploy to tomcat server'){
             steps{
-                sshagent(['ubuntu']){
+                sshagent(['tomcat']){
                     sh """
                     scp -o StrictHostKeyChecking=no target/hiring.war tomcat@3.95.199.9:/opt/tomcat-9/webapps/
-                    ssh -o StrictHostkeyChecking=no ubuntu@3.95.199.9 stoptomcat
-                    ssh -o StrictHostKeyChecking=no ubuntu@3.95.199.9 startomcat
+                    ssh -o StrictHostkeyChecking=no tomcat@3.95.199.9 stoptomcat
+                    ssh -o StrictHostKeyChecking=no tomcat@3.95.199.9 startomcat
                     """
                 }
             }
