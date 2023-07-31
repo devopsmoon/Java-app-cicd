@@ -46,9 +46,9 @@ version: '4.0.0'
             steps{
                 sshagent(['ubuntu']){
                     sh """
-                    scp -o StrictHostKeyChecking=no target/hiring.war ubuntu@3.95.199.9:/opt/tomcat-9/webapps/
-                    ssh -o StrictHostkeyChecking=no ubuntu@3.95.199.9 /usr/bin/stoptomat.sh
-                    ssh -o StrictHostKeyChecking=no ubuntu@3.95.199.9 /usr/bin/startomcat.sh
+                    scp -o StrictHostKeyChecking=no target/hiring.war tomcat@3.95.199.9:/opt/tomcat-9/webapps/
+                    ssh -o StrictHostkeyChecking=no ubuntu@3.95.199.9 stoptomcat
+                    ssh -o StrictHostKeyChecking=no ubuntu@3.95.199.9 startomcat
                     """
                 }
             }
