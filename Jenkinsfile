@@ -46,6 +46,7 @@ version: '4.0.0'
             steps{
                 sshagent(['tomcat']){
                     sh """
+                    ssh -o StrickHostkeyChecking=no ls -lart
                     scp -o StrictHostKeyChecking=no target/hiring.war tomcat@3.95.199.9:/opt/tomcat-9/webapps/
                     ssh -o StrictHostkeyChecking=no tomcat@3.95.199.9 stoptomcat
                     ssh -o StrictHostKeyChecking=no tomcat@3.95.199.9 startomcat
