@@ -48,7 +48,7 @@ version: '4.0.0'
                 sh """
                 scp -o StrictHostKeyChecking=no target/*.war ubuntu@34.238.50.219:/opt/tomcat/webapps/
                 ssh -o StrictHostKeyChecking=no ubuntu@34.238.50.219 stoptomcat
-                ssh -0 StrictHostKeyChecking=no ubuntu@34.238.50.219 startomcat
+                ssh -o StrictHostKeyChecking=no ubuntu@34.238.50.219 startomcat
                 """
                 }
                 
