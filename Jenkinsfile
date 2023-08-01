@@ -24,5 +24,23 @@ pipeline{
                 }
             }
         }
+        stage('Nexus Pull'){
+            steps{
+            nexusArtifactUploader artifacts: [
+[
+artifactId: 'hiring', 
+classifier: '',
+file: 'target/hiring.war', type: 'war'
+]
+], 
+credentialsId: 'Nexus-User', 
+groupId: 'in.javahome', 
+nexusUrl: '3.93.10.183:8081/', 
+nexusVersion: 'nexus3', 
+protocol: 'http', 
+repository: 'Java-App/', 
+version: '4.0.0'
+            }
+        }
     }
 }
